@@ -307,6 +307,7 @@ end
 # 
 def get_slack_names_hash(user_id)
   uri = "https://slack.com/api/users.list?token=ENV["API_TOKEN"]"
+  puts uri
   request = HTTParty.get(uri)
   response = JSON.parse(request.body)
   if response["ok"]
