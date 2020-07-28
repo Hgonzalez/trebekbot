@@ -307,9 +307,9 @@ end
 # 
 def get_slack_names_hash(user_id)
   uri = "https://slack.com/api/users.list?token=#{ENV["API_TOKEN"]}"
-  puts uri
   request = HTTParty.get(uri)
   response = JSON.parse(request.body)
+  puts uri
   if response["ok"]
     user = response["members"].find { |u| u["id"] == user_id }
     names = { :id => user_id, :name => user["name"]}
